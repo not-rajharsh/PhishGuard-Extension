@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PhishGuard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="pg-app">
+    <header class="pg-header">
+      <img src="icons/icon48.png" alt="" class="pg-logo" />
+      <div>
+        <h1>PhishGuard</h1>
+        <div id="pg-host" class="pg-host">\u2014</div>
+      </div>
+    </header>
+
+    <section id="pg-status" class="pg-status pg-status--safe">
+      <div class="pg-status-score" id="pg-score">0</div>
+      <div class="pg-status-text">
+        <strong id="pg-status-label">Looking safe</strong>
+        <span id="pg-status-sub">No issues detected on this page.</span>
+      </div>
+    </section>
+
+    <section class="pg-issues" id="pg-issues">
+      <!-- populated dynamically -->
+    </section>
+
+    <section class="pg-actions">
+      <button id="pg-rescan">Rescan page</button>
+      <button id="pg-trust" class="pg-secondary">Trust this site</button>
+    </section>
+
+    <section class="pg-recent">
+      <div class="pg-recent-header">Recently flagged</div>
+      <ul id="pg-recent-list"></ul>
+    </section>
+
+    <footer class="pg-footer">
+      <a href="options.html" target="_blank">Settings & whitelist</a>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

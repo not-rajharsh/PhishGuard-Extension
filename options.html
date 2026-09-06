@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PhishGuard Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="opt-wrap">
+    <header>
+      <img src="icons/icon48.png" alt="" />
+      <h1>PhishGuard Settings</h1>
+    </header>
+
+    <section class="opt-card">
+      <h2>Detection settings</h2>
+      <label class="opt-row">
+        <span>Notify me for high-risk pages</span>
+        <input type="checkbox" id="notifyHighRisk" />
+      </label>
+      <label class="opt-row">
+        <span>Alert on suspicious downloads (.exe, .scr, .bat, ...)</span>
+        <input type="checkbox" id="downloadAlerts" />
+      </label>
+      <label class="opt-row">
+        <span>Sensitivity</span>
+        <select id="sensitivity">
+          <option value="low">Low (fewer alerts)</option>
+          <option value="normal">Normal</option>
+          <option value="high">High (more alerts)</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="opt-card">
+      <h2>Trusted sites (whitelist)</h2>
+      <p class="opt-hint">Sites you've marked as trusted, or added manually, are never scanned or flagged.</p>
+      <div class="opt-add-row">
+        <input type="text" id="whitelistInput" placeholder="example.com" />
+        <button id="addWhitelist">Add</button>
+      </div>
+      <ul id="whitelistList" class="opt-list"></ul>
+    </section>
+
+    <section class="opt-card">
+      <h2>Recently flagged pages</h2>
+      <ul id="historyList" class="opt-list"></ul>
+      <button id="clearHistory" class="opt-secondary">Clear history</button>
+    </section>
+
+    <section class="opt-card">
+      <h2>Flagged downloads</h2>
+      <ul id="downloadList" class="opt-list"></ul>
+    </section>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

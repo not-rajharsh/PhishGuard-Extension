@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "PhishGuard \u2014 Phishing & Scam Site Detector",
+  "version": "1.0.0",
+  "description": "Analyzes pages in real time for lookalike domains, credential-stealing forms, suspicious redirects, insecure connections, and dangerous downloads.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "webNavigation",
+    "webRequest",
+    "downloads",
+    "notifications",
+    "tabs",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "lib/brandList.js",
+        "lib/domainUtils.js",
+        "lib/pageAnalyzer.js",
+        "content.js"
+      ],
+      "css": ["content.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["warning.html", "icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
